@@ -1,21 +1,24 @@
 import { Routes } from '@angular/router';
-import { FirstComponent } from './routes/first/first';
-import { SecondComponent } from './routes/second/second';
-import { SubFirstComponent } from './routes/first/sub-first/sub-first';
-import { SubSubFirstComponent } from './routes/first/sub-first/sub-sub-first/sub-sub-first';
 
 export const routes: Routes = [
   {
     path: 'first',
-    component: FirstComponent,
+    loadComponent: () =>
+      import('./routes/first/first').then((m) => m.FirstComponent),
     children: [
       {
         path: 'sub-first',
-        component: SubFirstComponent,
+        loadComponent: () =>
+          import('./routes/first/sub-first/sub-first').then(
+            (m) => m.SubFirstComponent
+          ),
         children: [
           {
             path: 'sub-sub-first',
-            component: SubSubFirstComponent,
+            loadComponent: () =>
+              import(
+                './routes/first/sub-first/sub-sub-first/sub-sub-first'
+              ).then((m) => m.SubSubFirstComponent),
           },
         ],
       },
@@ -23,6 +26,7 @@ export const routes: Routes = [
   },
   {
     path: 'second',
-    component: SecondComponent,
+    loadComponent: () =>
+      import('./routes/second/second').then((m) => m.SecondComponent),
   },
 ];
