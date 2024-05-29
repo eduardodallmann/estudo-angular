@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { ThemeService } from './services/theme';
+
 import { Button } from './components/communs/button/button';
+import { ThemeService } from './services/theme';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { Button } from './components/communs/button/button';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  constructor(private themeService: ThemeService) {}
+  constructor(private readonly themeService: ThemeService) {}
 
   onClick() {
     this.themeService.toggleTheme();

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TodoState } from '../../first-state';
+
 import { Button } from '../../../../components/communs/button/button';
+import { TodoState } from '../../first-state';
 
 @Component({
   selector: 'app-sub-sub-first',
@@ -11,7 +12,7 @@ import { Button } from '../../../../components/communs/button/button';
   templateUrl: './sub-sub-first.html',
 })
 export class SubSubFirstComponent {
-  constructor(private todoState: TodoState) {}
+  constructor(private readonly todoState: TodoState) {}
 
   onClick() {
     this.todoState.addTodo({

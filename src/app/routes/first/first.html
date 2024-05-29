@@ -1,3 +1,19 @@
-First (todos: {{count}}) <ng-container *ngIf="loading">tá carregando</ng-container>
+First (todos: {{ (todoState.todos | async)?.length }})
+<ng-container *ngIf="todoState.loading | async">tá carregando</ng-container
+><ng-template [ngIf]="todoState.loading | async">tá carregando</ng-template>
+@if (todoState.loading | async) {
+  tá carregando
+}
+{{ todoState.loading | async }}
 <br />
 <router-outlet></router-outlet>
+
+<button
+  class="a b c d e f"
+  style="display: block"
+  aria-modal="false"
+  aria-invalid="false"
+  contenteditable="342"
+>
+  a
+</button>

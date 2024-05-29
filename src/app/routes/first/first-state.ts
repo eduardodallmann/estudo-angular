@@ -1,4 +1,3 @@
-import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 export type Todo = {
@@ -8,19 +7,20 @@ export type Todo = {
 };
 
 export class TodoState {
-  private static _todos: Array<Todo> = [
+  private static readonly _todos: Array<Todo> = [
     { id: 1, title: 'First Todo', done: false },
     { id: 2, title: 'Second Todo', done: true },
     { id: 3, title: 'Third Todo', done: false },
   ];
 
-  private static _loading = new BehaviorSubject(false);
+  private static readonly _loading = new BehaviorSubject(false);
+
   private setLoading(loading: boolean) {
     TodoState._loading.next(loading);
   }
 
-  private static _observableTodos = new BehaviorSubject<Array<Todo>>(
-    TodoState._todos
+  private static readonly _observableTodos = new BehaviorSubject<Array<Todo>>(
+    TodoState._todos,
   );
 
   constructor() {}
@@ -46,9 +46,11 @@ export class TodoState {
   get todos() {
     return TodoState._observableTodos.pipe();
   }
+
   get loading() {
     return TodoState._loading;
   }
+
   addTodo(todo: Todo) {
     this.setLoading(true);
     new Promise((resolve) => {
