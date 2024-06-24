@@ -42,7 +42,7 @@ module.exports = {
     'sonarjs/no-duplicate-string': 'error',
     'sonarjs/prefer-immediate-return': 'error',
     //typescript-eslint rules
-    '@typescript-eslint/consistent-type-imports': 'error',
+    // '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/no-inferrable-types': 'error',
     '@typescript-eslint/ban-types': 'error',

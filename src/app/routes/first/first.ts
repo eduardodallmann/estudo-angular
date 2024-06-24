@@ -1,18 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
-import { TodoState } from './first-state';
+import { TodoSignalsStateService } from 'src/app/store/todo-store.service';
 
 @Component({
   selector: 'app-first',
   standalone: true,
   imports: [RouterOutlet, CommonModule],
-  providers: [TodoState],
   templateUrl: './first.html',
 })
 export class FirstComponent {
-  constructor(public todoState: TodoState) {
+  constructor(public todoState: TodoSignalsStateService) {
     this.todoState.init();
   }
 }

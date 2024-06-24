@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TodoSignalsStateService } from 'src/app/store/todo-store.service';
 
 import { Button } from '../../../../components/communs/button/button';
-import { TodoState } from '../../first-state';
 
 @Component({
   selector: 'app-sub-sub-first',
   standalone: true,
   imports: [RouterOutlet, Button],
-  providers: [TodoState],
   templateUrl: './sub-sub-first.html',
 })
 export class SubSubFirstComponent {
-  constructor(private readonly todoState: TodoState) {}
+  constructor(public readonly todoState: TodoSignalsStateService) {}
 
   onClick() {
     this.todoState.addTodo({
